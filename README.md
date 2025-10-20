@@ -1,3 +1,2 @@
 # Round-Robin-Model
-This is my first Repository.
-Iam Shantanu
+Hi, I’m **Shantanu**. This is my first GitHub repository showcasing a simple CPU scheduling simulation.
