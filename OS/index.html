@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Round Robin 3D Simulator</title>
+    <link rel="stylesheet" href="./styles.css" />
+
+    <!-- Import map for Three.js and addons -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <h2>Round Robin Model</h2>
+
+        <label class="row">
+          <span>Time Quantum</span>
+          <input id="quantumInput" type="number" min="1" step="1" value="3" />
+        </label>
+
+        <div class="row buttons">
+          <button id="startBtn">Start</button>
+          <button id="resetBtn" class="muted">Reset</button>
+        </div>
+
+        <div class="meta">
+          <div>Current Time: <span id="currentTime">0</span></div>
+          <div>Quantum: <span id="quantumDisplay">3</span></div>
+        </div>
+
+        <h3>Process list</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>PID</th><th>BT</th><th>AT</th><th>RT</th><th>WT</th>
+            </tr>
+          </thead>
+          <tbody id="processTableBody"></tbody>
+        </table>
+
+        <h3>Ready queue</h3>
+        <div id="readyQueue" class="chips"></div>
+
+        <h3>CPU</h3>
+        <div id="cpuDisplay" class="cpuBadge">Idle</div>
+
+        <h3>History log</h3>
+        <ul id="historyList" class="log"></ul>
+
+        <h3>Final stats</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>PID</th><th>CT</th><th>TAT</th><th>WT</th>
+            </tr>
+          </thead>
+          <tbody id="statsTableBody"></tbody>
+          <tfoot>
+            <tr>
+              <td>Avg</td>
+              <td>-</td>
+              <td id="avgTAT">-</td>
+              <td id="avgWT">-</td>
+            </tr>
+          </tfoot>
+        </table>
+      </aside>
+
+      <main class="stage">
+        <div id="canvas3d" class="threeRoot"></div>
+        <div id="label3d" class="labelRoot"></div>
+      </main>
+    </div>
+
+    <!-- App entry (module) -->
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
